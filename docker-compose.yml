@@ -9,17 +9,28 @@ services:
       - db
     deploy:
       labels:
+        - "traefik.backend=app"
         - "traefik.frontend.rule=Host:app.testing.traefik"
         - "traefik.docker.network=traefik-net"
         - "traefik.port=3000"
+    labels:
+      - "traefik.backend=app"
+      - "traefik.frontend.rule=Host:app.testing.traefik"
+      - "traefik.docker.network=traefik-net"
+      - "traefik.port=3000"
     networks:
       - default
       - traefik-net
-    ports:
-      - "3000:3000"
+    # ports:
+    #   - "3000:3000"
 
   db:
     image: mongo
+    deploy:
+      labels:
+        - "traefik.enable=false"
+    labels:
+      - "traefik.enable=false"
 
 networks:
   default:
