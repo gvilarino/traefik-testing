@@ -21,8 +21,6 @@ services:
     networks:
       - default
       - traefik-net
-    # ports:
-    #   - "3000:3000"
 
   db:
     image: mongo
