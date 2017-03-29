@@ -1,0 +1,22 @@
+{
+  "name": "traefik-testing",
+  "version": "0.0.1",
+  "description": "Simple node.js app for testing traefik's backends",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gvilarino/traefik-testing.git"
+  },
+  "author": "gvilarino",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gvilarino/traefik-testing/issues"
+  },
+  "homepage": "https://github.com/gvilarino/traefik-testing#readme",
+  "dependencies": {
+    "mongodb": "^2.2.5"
+  }
+}

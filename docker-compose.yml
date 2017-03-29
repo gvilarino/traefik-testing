@@ -1,0 +1,27 @@
+version: '3.1'
+
+services:
+  app:
+    image: gvilarino/traefik-testing
+    environment:
+      MONGO_URL: "mongodb://db/test"
+    depends_on:
+      - db
+    deploy:
+      labels:
+        - "traefik.frontend.rule=Host:app.testing.traefik"
+        - "traefik.docker.network=traefik-net"
+        - "traefik.port=3000"
+    networks:
+      - default
+      - traefik-net
+    ports:
+      - "3000:3000"
+
+  db:
+    image: mongo
+
+networks:
+  default:
+  traefik-net:
+    external: true
